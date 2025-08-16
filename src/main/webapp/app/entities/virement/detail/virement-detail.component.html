@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (virement(); as virementRef) {
+      <div>
+        <h2 data-cy="virementDetailsHeading"><span jhiTranslate="ebankingBnaApp.virement.detail.title">Virement</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ virementRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebankingBnaApp.virement.compteBeneficiaire">Compte Beneficiaire</span></dt>
+          <dd>
+            <span>{{ virementRef.compteBeneficiaire }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebankingBnaApp.virement.motif">Motif</span></dt>
+          <dd>
+            <span>{{ virementRef.motif }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebankingBnaApp.virement.compte">Compte</span></dt>
+          <dd>
+            @if (virement()!.compte) {
+              <div>
+                <a [routerLink]="['/compte', virement()!.compte?.id, 'view']">{{ virementRef.compte?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="ebankingBnaApp.virement.beneficiaire">Beneficiaire</span></dt>
+          <dd>
+            @if (virement()!.beneficiaire) {
+              <div>
+                <a [routerLink]="['/compte', virement()!.beneficiaire?.id, 'view']">{{ virementRef.beneficiaire?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/virement', virementRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

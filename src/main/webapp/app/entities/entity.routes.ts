@@ -6,6 +6,21 @@ const routes: Routes = [
     data: { pageTitle: 'ebankingBnaApp.adminAuthority.home.title' },
     loadChildren: () => import('./admin/authority/authority.routes'),
   },
+  {
+    path: 'compte',
+    data: { pageTitle: 'ebankingBnaApp.compte.home.title' },
+    loadChildren: () => import('./compte/compte.routes'),
+  },
+  {
+    path: 'operation',
+    data: { pageTitle: 'ebankingBnaApp.operation.home.title' },
+    loadChildren: () => import('./operation/operation.routes'),
+  },
+  {
+    path: 'virement',
+    data: { pageTitle: 'ebankingBnaApp.virement.home.title' },
+    loadChildren: () => import('./virement/virement.routes'),
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 

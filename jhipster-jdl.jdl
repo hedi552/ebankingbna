@@ -1,0 +1,30 @@
+entity Compte {
+  numcompte String required
+  agence Integer required
+}
+
+entity Operation {
+  montant Long required
+  libelle String required
+}
+
+entity Virement {
+  compteBeneficiaire String required
+  motif String required
+}
+
+relationship ManyToOne {
+  Compte{user} to User with builtInEntity
+  Operation{compte} to Compte
+  Virement{compte} to Compte
+  Virement{beneficiaire} to Compte
+}
+
+dto Compte, Operation, Virement with mapstruct
+
+
+
+
+
+
+

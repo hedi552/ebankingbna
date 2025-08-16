@@ -1,0 +1,105 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-virement-heading" data-cy="VirementCreateUpdateHeading" jhiTranslate="ebankingBnaApp.virement.home.createOrEditLabel">
+        Create or edit a Virement
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="ebankingBnaApp.virement.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let compteBeneficiaireRef = editForm.get('compteBeneficiaire')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_compteBeneficiaire" jhiTranslate="ebankingBnaApp.virement.compteBeneficiaire"
+            >Compte Beneficiaire</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="compteBeneficiaire"
+            id="field_compteBeneficiaire"
+            data-cy="compteBeneficiaire"
+            formControlName="compteBeneficiaire"
+          />
+          @if (compteBeneficiaireRef.invalid && (compteBeneficiaireRef.dirty || compteBeneficiaireRef.touched)) {
+            <div>
+              @if (editForm.get('compteBeneficiaire')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let motifRef = editForm.get('motif')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_motif" jhiTranslate="ebankingBnaApp.virement.motif">Motif</label>
+          <input type="text" class="form-control" name="motif" id="field_motif" data-cy="motif" formControlName="motif" />
+          @if (motifRef.invalid && (motifRef.dirty || motifRef.touched)) {
+            <div>
+              @if (editForm.get('motif')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_compte" jhiTranslate="ebankingBnaApp.virement.compte">Compte</label>
+          <select
+            class="form-control"
+            id="field_compte"
+            data-cy="compte"
+            name="compte"
+            formControlName="compte"
+            [compareWith]="compareCompte"
+          >
+            <option [ngValue]="null"></option>
+            @for (compteOption of comptesSharedCollection; track $index) {
+              <option [ngValue]="compteOption">{{ compteOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_beneficiaire" jhiTranslate="ebankingBnaApp.virement.beneficiaire">Beneficiaire</label>
+          <select
+            class="form-control"
+            id="field_beneficiaire"
+            data-cy="beneficiaire"
+            name="beneficiaire"
+            formControlName="beneficiaire"
+            [compareWith]="compareCompte"
+          >
+            <option [ngValue]="null"></option>
+            @for (compteOption of comptesSharedCollection; track $index) {
+              <option [ngValue]="compteOption">{{ compteOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

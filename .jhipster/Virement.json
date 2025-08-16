@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20250813105313"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "compteBeneficiaire",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "motif",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Virement",
+  "relationships": [
+    {
+      "otherEntityName": "compte",
+      "relationshipName": "compte",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "compte",
+      "relationshipName": "beneficiaire",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

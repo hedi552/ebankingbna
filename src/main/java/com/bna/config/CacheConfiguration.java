@@ -41,6 +41,9 @@ public class CacheConfiguration {
             createCache(cm, com.bna.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.bna.repository.UserRepository.USERS_BY_EMAIL_CACHE);
             createCache(cm, com.bna.domain.Authority.class.getName());
+            cm.createCache(com.bna.domain.Compte.class.getName(), jcacheConfiguration);
+            cm.createCache(com.bna.domain.Operation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.bna.domain.Virement.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
