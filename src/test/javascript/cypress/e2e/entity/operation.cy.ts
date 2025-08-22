@@ -15,7 +15,7 @@ describe('Operation e2e test', () => {
   const operationPageUrlPattern = new RegExp('/operation(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const operationSample = { montant: 4183, libelle: 'yahoo talkative' };
+  const operationSample = { montant: 31500, libelle: 'sympathetically lest zesty' };
 
   let operation;
 
@@ -157,11 +157,11 @@ describe('Operation e2e test', () => {
     });
 
     it('should create an instance of Operation', () => {
-      cy.get(`[data-cy="montant"]`).type('8720');
-      cy.get(`[data-cy="montant"]`).should('have.value', '8720');
+      cy.get(`[data-cy="montant"]`).type('23954');
+      cy.get(`[data-cy="montant"]`).should('have.value', '23954');
 
-      cy.get(`[data-cy="libelle"]`).type('eek');
-      cy.get(`[data-cy="libelle"]`).should('have.value', 'eek');
+      cy.get(`[data-cy="libelle"]`).type('redact clinch octave');
+      cy.get(`[data-cy="libelle"]`).should('have.value', 'redact clinch octave');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

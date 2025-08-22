@@ -1,0 +1,28 @@
+{
+  "ebankingBnaApp": {
+    "mondat": {
+      "home": {
+        "title": "Mondats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mondat",
+        "createOrEditLabel": "Create or edit a Mondat",
+        "notFound": "No Mondats found"
+      },
+      "created": "A new Mondat is created with identifier {{ param }}",
+      "updated": "A Mondat is updated with identifier {{ param }}",
+      "deleted": "A Mondat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mondat {{ id }}?"
+      },
+      "detail": {
+        "title": "Mondat"
+      },
+      "id": "ID",
+      "compteSrc": "Compte Src",
+      "compteBenef": "Compte Benef",
+      "montant": "Montant",
+      "code": "Code",
+      "compte": "Compte"
+    }
+  }
+}

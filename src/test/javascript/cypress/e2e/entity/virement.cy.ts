@@ -15,7 +15,7 @@ describe('Virement e2e test', () => {
   const virementPageUrlPattern = new RegExp('/virement(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const virementSample = { compteBeneficiaire: 'or oh whoa', motif: 'boohoo rim' };
+  const virementSample = { compteBeneficiaire: 'amongst', motif: 'lest plus' };
 
   let virement;
 
@@ -157,11 +157,11 @@ describe('Virement e2e test', () => {
     });
 
     it('should create an instance of Virement', () => {
-      cy.get(`[data-cy="compteBeneficiaire"]`).type('hoick ack anxiously');
-      cy.get(`[data-cy="compteBeneficiaire"]`).should('have.value', 'hoick ack anxiously');
+      cy.get(`[data-cy="compteBeneficiaire"]`).type('better till charter');
+      cy.get(`[data-cy="compteBeneficiaire"]`).should('have.value', 'better till charter');
 
-      cy.get(`[data-cy="motif"]`).type('peppery uh-huh facilitate');
-      cy.get(`[data-cy="motif"]`).should('have.value', 'peppery uh-huh facilitate');
+      cy.get(`[data-cy="motif"]`).type('the');
+      cy.get(`[data-cy="motif"]`).should('have.value', 'the');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

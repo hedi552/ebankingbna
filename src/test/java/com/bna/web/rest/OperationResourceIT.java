@@ -315,8 +315,6 @@ class OperationResourceIT {
         Operation partialUpdatedOperation = new Operation();
         partialUpdatedOperation.setId(operation.getId());
 
-        partialUpdatedOperation.montant(UPDATED_MONTANT).libelle(UPDATED_LIBELLE);
-
         restOperationMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedOperation.getId())

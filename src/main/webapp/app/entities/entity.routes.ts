@@ -21,6 +21,11 @@ const routes: Routes = [
     data: { pageTitle: 'ebankingBnaApp.virement.home.title' },
     loadChildren: () => import('./virement/virement.routes'),
   },
+  {
+    path: 'mondat',
+    data: { pageTitle: 'ebankingBnaApp.mondat.home.title' },
+    loadChildren: () => import('./mondat/mondat.routes'),
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 

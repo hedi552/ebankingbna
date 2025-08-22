@@ -315,8 +315,6 @@ class VirementResourceIT {
         Virement partialUpdatedVirement = new Virement();
         partialUpdatedVirement.setId(virement.getId());
 
-        partialUpdatedVirement.motif(UPDATED_MOTIF);
-
         restVirementMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedVirement.getId())

@@ -84,12 +84,12 @@ public class CompteService {
      * @return the list of entities.
      */
     @Transactional(readOnly = true)
-public List<CompteDTO> findCurrentUserComptes() {
-    return compteRepository.findByUserIsCurrentUser()
+    public List<CompteDTO> findCurrentUserComptes() {
+        return compteRepository.findByUserIsCurrentUser()
                            .stream()
                            .map(compteMapper::toDto)
                            .toList();
-}
+    }
 
     /**
      * Get one compte by id.

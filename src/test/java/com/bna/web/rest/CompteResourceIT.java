@@ -315,6 +315,8 @@ class CompteResourceIT {
         Compte partialUpdatedCompte = new Compte();
         partialUpdatedCompte.setId(compte.getId());
 
+        partialUpdatedCompte.numcompte(UPDATED_NUMCOMPTE).agence(UPDATED_AGENCE);
+
         restCompteMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedCompte.getId())

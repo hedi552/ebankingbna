@@ -57,7 +57,7 @@ public class VirementService {
         return virementMapper.toDto(virement);
     }
     /**
-     * Operations pour les compte d'un utilisateur
+     * Virement pour les compte d'un utilisateur
     */
     @Transactional(readOnly = true)
     public List<VirementDTO> findAllByCurrentUser() {

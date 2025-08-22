@@ -70,7 +70,7 @@ export class OperationService {
     }
     return operationCollection;
   }
- getByCurrentUser(): Observable<EntityArrayResponseType> {
-  return this.http.get<IOperation[]>(`${this.resourceUrl}/current-user`, { observe: 'response' });
+  getByCurrentUser(): Observable<EntityArrayResponseType> {
+    return this.http.get<IOperation[]>(`${this.resourceUrl}/current-user`, { observe: 'response' });
   }
 }
