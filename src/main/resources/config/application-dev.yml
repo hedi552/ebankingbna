@@ -47,10 +47,19 @@ spring:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    from: "ebankingbnastage@gmail.com"   # The 'from' address used in emails
+    host: smtp.gmail.com
+    port: 587
+    username: ebankingbnastage@gmail.com  # Your Gmail address
+    password: imbq yvcx cxzy akft # Use App Password from Google, not your Gmail login
+    protocol: smtp
+    tls: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
@@ -93,6 +102,7 @@ jhipster:
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
     base-url: http://127.0.0.1:8080
+    from: "ebankingbnastage@gmail.com"
   logging:
     use-json-format: false # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration

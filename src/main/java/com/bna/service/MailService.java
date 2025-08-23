@@ -54,6 +54,7 @@ public class MailService {
     @Async
     public void sendEmail(String to, String subject, String content, boolean isMultipart, boolean isHtml) {
         sendEmailSync(to, subject, content, isMultipart, isHtml);
+        LOG.debug("Sending from: '{}'", jHipsterProperties.getMail().getFrom());
     }
 
     private void sendEmailSync(String to, String subject, String content, boolean isMultipart, boolean isHtml) {

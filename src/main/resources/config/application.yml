@@ -13,7 +13,9 @@
 # Full reference is available at:
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
-
+jhipster:
+  mail:
+    from: "ebankingbnastage@gmail.com"
 ---
 # Conditionally disable springdoc on missing api-docs profile
 spring:
@@ -62,7 +64,7 @@ management:
       enabled: true
   health:
     mail:
-      enabled: false # When using the MailService, configure an SMTP server and set this to true
+      enabled: true # When using the MailService, configure an SMTP server and set this to true
   prometheus:
     metrics:
       export:
@@ -115,6 +117,19 @@ spring:
     jpa:
       repositories:
         bootstrap-mode: deferred
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ebankingbnastage@gmail.com  # Your Gmail address
+    password: imbq yvcx cxzy akft # Use App Password from Google, not your Gmail login
+    protocol: smtp
+    tls: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   jpa:
     open-in-view: false
     properties:
@@ -176,6 +191,7 @@ server:
 springdoc:
   show-actuator: true
 
+
 # Properties to be exposed on the /info management endpoint
 info:
   # Comma separated list of profiles that will trigger the ribbon to show
@@ -198,8 +214,7 @@ jhipster:
   #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
   #   allow-credentials: true
   #   max-age: 1800
-  mail:
-    from: ebankingBna@localhost
+
   api-docs:
     default-include-pattern: /api/**
     management-include-pattern: /management/**
