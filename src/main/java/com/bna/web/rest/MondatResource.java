@@ -88,13 +88,13 @@ public class MondatResource {
     // Send email
     mailService.sendEmail(
         "ebankingbnastage@gmail.com",
-        "Confirm your transaction",
-        "Click this link to confirm: " + confirmLink,
+        "Confirmer la transaction",
+        "Clicker ce lien pour confirmer la transaction: " + confirmLink,
         false,
         true
     );
 
-    return ResponseEntity.ok("Confirmation email sent. Transaction not yet saved.");
+    return ResponseEntity.ok("email de confirmation a ete envoyer, en attente de confirmation");
     }
 
     /** Confirm Mondat via JWT link */
@@ -108,7 +108,7 @@ public class MondatResource {
         MondatDTO mondatDTO = mondatEnAtt.confirmTransaction(token);
         mondatService.save(mondatDTO); // actually saves to DB
 
-        return ResponseEntity.ok("Transaction confirmed ✅");
+        return ResponseEntity.ok("Transaction confirmee ✅");
     }
 
     /**
